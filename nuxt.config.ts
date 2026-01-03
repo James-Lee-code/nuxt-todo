@@ -1,14 +1,18 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  // 明確指定：純前端 SPA（CSR）
+  // 純前端 SPA（CSR）
   ssr: false,
 
-  // Netlify / 靜態站點用
+  // 產生靜態站點（給 Netlify 用）
   nitro: {
     preset: 'static'
   },
 
-  // 🔑 關鍵：Supabase 一定要在 runtimeConfig 宣告
+  /**
+   * 🔑 Supabase runtimeConfig
+   * ❗不要在這裡填值
+   * ❗值由 .env / Netlify Environment Variables 提供
+   */
   runtimeConfig: {
     public: {
       supabaseUrl: '',
@@ -22,8 +26,8 @@ export default defineNuxtConfig({
   },
 
   modules: [
-    '@nuxt/eslint',
-    '@nuxt/ui'
+    '@nuxt/ui',
+    '@nuxt/eslint'
   ],
 
   css: ['~/assets/css/main.css'],
