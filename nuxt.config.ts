@@ -2,10 +2,13 @@
 export default defineNuxtConfig({
   nitro: {
     preset: 'netlify',
-    prerender: {
-      routes: []
-    }
+    prerender: { crawlLinks: false } 
   },
+
+  routeRules: {
+    '/': { ssr: false }
+  },
+
   modules: [
     '@nuxt/eslint',
     '@nuxt/ui'
@@ -16,10 +19,6 @@ export default defineNuxtConfig({
   },
 
   css: ['~/assets/css/main.css'],
-
-  routeRules: {
-    '/': { prerender: true }
-  },
 
   compatibilityDate: '2025-01-15',
 
