@@ -2,18 +2,13 @@
 export default defineNuxtConfig({
   ssr: false,
 
+  nitro: {
+    preset: 'static'
+  },
+
   app: {
     baseURL: '/',
     buildAssetsDir: '/_nuxt/'
-  },
-
-  nitro: {
-    preset: 'netlify',
-    prerender: { crawlLinks: false } 
-  },
-
-  routeRules: {
-    '/': { ssr: false }
   },
 
   modules: [
@@ -21,11 +16,11 @@ export default defineNuxtConfig({
     '@nuxt/ui'
   ],
 
+  css: ['~/assets/css/main.css'],
+
   devtools: {
     enabled: true
   },
-
-  css: ['~/assets/css/main.css'],
 
   compatibilityDate: '2025-01-15',
 
