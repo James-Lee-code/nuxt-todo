@@ -1,15 +1,14 @@
 import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl = 'https://jgqnbpjvpfhbflpkgdzc.supabase.co'
+export const useSupabase = () => {
+  const config = useRuntimeConfig()
 
-const SUPABASEKEY = process.env.SUPABASEKEY as string
-
-const useSupabase = () => {
-  const supabase = createClient(supabaseUrl, SUPABASEKEY);
+  const supabase = createClient(
+    config.public.supabaseUrl as string,
+    config.public.supabaseAnonKey as string
+  )
 
   return {
-    supabase,
-  };
-};
-
-export default useSupabase;
+    supabase
+  }
+}

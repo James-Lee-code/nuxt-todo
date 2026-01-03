@@ -1,4 +1,4 @@
-import useSupabase from "./useSupabase";
+import { useSupabase } from "./useSupabase";
 
 const useAuth = () => {
   const user = useState<any | null>("user", () => null);
