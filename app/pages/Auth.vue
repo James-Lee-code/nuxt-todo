@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { ref, reactive } from "vue";
 import useAuth from "../composables/useAuth";
-import { useRouter } from "vue-router";
 
 const isFormOpen = ref(false);
 
