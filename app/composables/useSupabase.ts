@@ -1,14 +1,6 @@
-import { createClient } from '@supabase/supabase-js'
+import { getSupabaseClient } from "../../utils/supabase.client";
 
 export const useSupabase = () => {
-  const config = useRuntimeConfig()
-
-  const supabase = createClient(
-    config.public.supabaseUrl as string,
-    config.public.supabaseAnonKey as string
-  )
-
-  return {
-    supabase
-  }
-}
+  const supabase = getSupabaseClient();
+  return { supabase };
+};
